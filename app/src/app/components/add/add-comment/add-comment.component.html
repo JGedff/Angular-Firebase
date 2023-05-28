@@ -1,0 +1,13 @@
+<div>
+    <h5> Create a comment </h5>
+
+    <form [formGroup]="form" (ngSubmit)="createComment()">
+        <label for="userName"> Write your name </label>
+        <input type="text" name="userName" id="userName" formControlName="userName">
+
+        <label for="content"> Write the content </label>
+        <input type="text" name="content" id="content" formControlName="content">
+
+        <button type="submit" [disabled]="form.invalid"> Create </button>
+    </form>
+</div>

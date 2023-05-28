@@ -1,0 +1,106 @@
+<nav class="navbar navbar-light navbar-expand-lg header">
+    <div class="m-2 ml-2 d-flex">
+        <div class="d-flex align-items-center mr-2">
+            <a href="#companyLink" class="nav-link px-2 text-muted">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-buildings" viewBox="0 0 16 16"><path d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022ZM6 8.694 1 10.36V15h5V8.694ZM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15Z"/><path d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z"/></svg>
+            </a>
+
+            <a class="navbar-brand" href="#"> Game-Revews Buy-Games </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" [ngSwitch]="actualPage" id="navbarColor01">
+            <ul class="navbar-nav mr-auto" *ngSwitchCase="1">
+                <li class="nav-item active">
+                    <button class="nav-link" (click)="selectPage(1)">
+                        <strong> Home </strong>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(2)">
+                        <span #elseBlock> Games </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(3)">
+                        <span> Posts </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(4)">
+                        <span> Contact us </span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto" *ngSwitchCase="2">
+                <li class="nav-item active">
+                    <button class="nav-link" (click)="selectPage(1)">
+                        <span> Home </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(2)">
+                        <strong> Games </strong>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(3)">
+                        <span> Posts </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(4)">
+                        <span> Contact us </span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto" *ngSwitchCase="3">
+                <li class="nav-item active">
+                    <button class="nav-link" (click)="selectPage(1)">
+                        <span> Home </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(2)">
+                        <span> Games </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(3)">
+                        <strong> Posts </strong>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(4)">
+                        <span> Contact us </span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto" *ngSwitchCase="4">
+                <li class="nav-item active">
+                    <button class="nav-link" (click)="selectPage(1)">
+                        <span> Home </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(2)">
+                        <span> Games </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(3)">
+                        <span> Posts </span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="selectPage(4)">
+                        <strong> Contact us </strong>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,22 @@
+<app-header (pageSelected)="changePage($event)" ></app-header>
+<div class="m-2rem" [ngSwitch]="page">
+    <div *ngSwitchCase="1">
+        <h2> About us </h2>
+        <app-home></app-home>
+    </div>
+    <div *ngSwitchCase="2">
+        <h2> Games </h2>
+        <app-games [gameData]="game" *ngFor="let game of arrayGames"></app-games>
+    </div>
+    <div *ngSwitchCase="3">
+        <h2> Posts </h2>
+        <app-add-post (load)="loadNewPost($event)"></app-add-post>
+        
+        <app-post [postData]="post" *ngFor="let post of arrayPosts"></app-post>
+    </div>
+    <div *ngSwitchCase="4">
+        <h2> Contact us </h2>
+        <app-contact></app-contact>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,11 @@
+<div>
+    <form [formGroup]="form">
+        <label for="email">Write your email</label>
+        <input type="email" name="email" id="email" placeholder="example@example.example" formControlName="email">
+
+        <label for="text">How can we help you?</label>
+        <input type="text" name="text" id="text" placeholder="Hello..." formControlName="text">
+
+        <button type="submit" [disabled]="form.invalid"> Send </button>
+    </form>
+</div>
