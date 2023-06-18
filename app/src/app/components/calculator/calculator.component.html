@@ -1,0 +1,55 @@
+<div id="calculator">
+    <div class="p-2">
+
+        <div class="w-100">
+            <table>
+                <tr>
+                    <td> {{ number1 }} </td>
+                    <td> {{ operator }} </td>
+                    <td> {{ number2 }} </td>
+                    <td> = {{ result }} </td>
+                </tr>
+                <tr>
+                    <td (click)="addNumber(1)"> 1 </td>
+                    <td (click)="addNumber(2)"> 2 </td>
+                    <td (click)="addNumber(3)"> 3 </td>
+                    <td (click)="changeOperation('-')"> - </td>
+                </tr>
+                <tr>
+                    <td (click)="addNumber(4)"> 4 </td>
+                    <td (click)="addNumber(5)"> 5 </td>
+                    <td (click)="addNumber(6)"> 6 </td>
+                    <td (click)="changeOperation('+')"> + </td>
+                </tr>
+                <tr>
+                    <td (click)="addNumber(7)"> 7 </td>
+                    <td (click)="addNumber(8)"> 8 </td>
+                    <td (click)="addNumber(9)"> 9 </td>
+                    <td (click)="changeOperation('/')"> / </td>
+                </tr>
+                <tr>
+                    <td (click)="addNumber(0)"> 0 </td>
+                    <td (click)="addNumber(10)"> 10 </td>
+                    <td (click)="addNumber(100)"> 100 </td>
+                    <td (click)="changeOperation('*')"> * </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <button [disabled]="operator == ' '" (click)="operate()"> = </button> </td>
+                    <td colspan="2" (click)="clear()"> c </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                    
+                        <form (ngSubmit)="selectGame()" [formGroup]="form">
+                            <label for="selectGame"> Select a game </label>
+                            <select name="selectGame" id="selectGame" formControlName="game">
+                                <option *ngFor="let game of array" [value]="game.price"> Title: {{ game.title }} | Price: {{ game.price }} </option>
+                            </select>
+                            <button type="submit" [disabled]="form.invalid"> Ok </button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
