@@ -1,0 +1,16 @@
+<div>
+    <button *ngIf="!edit" (click)="formEdit()"> Edit revew </button>
+    <div *ngIf="edit">
+        <form [formGroup]="form" (ngSubmit)="revewUpdate()">
+            <label for="title"> Write the content </label>
+            <input type="text" name="content" id="content" formControlName="content" [placeholder]="dataRevew.content">
+    
+            <label for="stars"> Write the stars of your revew </label>
+            <input type="number" name="stars" id="stars" formControlName="stars" min="0" max="5" step="0.25" [placeholder]="dataRevew.stars">
+    
+            <button type="submit" [disabled]="form.invalid"> Update </button>
+        </form>
+
+        <button (click)="formEdit()"> Cancel </button>
+    </div>
+</div>

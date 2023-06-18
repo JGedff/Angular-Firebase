@@ -1,0 +1,56 @@
+<div>
+    <h5> Create a GAME </h5>
+
+    <form [formGroup]="form" (ngSubmit)="createComment()">
+        <label for="barCode"> Write the code of the game </label>
+        <input type="text" name="barCode" id="barCode" formControlName="barCode">
+        <p *ngIf="this.form.get('barCode')?.invalid && this.form.get('barCode')?.touched" class="t-red"> The code of the game is a required field </p>
+
+        <label for="title"> Write the title of the game </label>
+        <input type="text" name="title" id="title" formControlName="title">
+        <p *ngIf="this.form.get('title')?.invalid && this.form.get('title')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="description"> Write a description of the game </label>
+        <input type="text" name="description" id="description" formControlName="description">
+        <p *ngIf="this.form.get('description')?.invalid && this.form.get('description')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="multiplayer"> Is the game a multiplayer game? </label>
+        <select name="multiplayer" id="multiplayer" formControlName="multiplayer">
+            <option value="true"> Yes </option>
+            <option value="false"> No </option>
+        </select>
+        <p *ngIf="this.form.get('multiplayer')?.invalid && this.form.get('multiplayer')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="price"> Write the price of the game </label>
+        <input type="number" name="price" id="price" formControlName="price">
+        <p *ngIf="this.form.get('price')?.invalid && this.form.get('price')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="stock"> Write the actual stock of the game </label>
+        <input type="number" name="stock" id="stock" formControlName="stock">
+        <p *ngIf="this.form.get('stock')?.invalid && this.form.get('stock')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="pegi"> Select the pegi </label>
+        <select name="pegi" id="pegi" formControlName="pegi">
+            <option *ngFor="let pegis of peg" [value]="pegis.name"> {{ pegis.name }} </option>
+        </select>
+        <p *ngIf="this.form.get('pegi')?.invalid && this.form.get('pegi')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="platform"> Select the platform </label>
+        <select name="platform" id="platform" formControlName="platform">
+            <option *ngFor="let platforms of plat" [value]="platforms.name"> {{ platforms.name }} </option>
+        </select>
+        <p *ngIf="this.form.get('platform')?.invalid && this.form.get('platform')?.touched" class="t-red"> The password must have at least 6 characters </p>
+        
+        <label for="genre"> Select the genre </label>
+        <select name="genre" id="genre" formControlName="genre">
+            <option *ngFor="let genres of gen" [value]="genres.name"> {{ genres.name }} </option>
+        </select>
+        <p *ngIf="this.form.get('genre')?.invalid && this.form.get('genre')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <label for="releasingDate"> Write the date </label>
+        <input type="text" name="releasingDate" id="releasingDate" formControlName="releasingDate" placeholder="01-01-0001">
+        <p *ngIf="this.form.get('releasingDate')?.invalid && this.form.get('releasingDate')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+        <button type="submit" [disabled]="form.invalid"> Create </button>
+    </form>
+</div>

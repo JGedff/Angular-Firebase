@@ -1,0 +1,46 @@
+<div>
+    <button *ngIf="!edit" (click)="formEdit()"> Edit game </button>
+    <div *ngIf="edit">
+        <form [formGroup]="form" (ngSubmit)="revewUpdate()">
+            <label for="title"> Write the title of the game </label>
+            <input type="text" name="title" id="title" formControlName="title" [placeholder]="dataGame.title">
+
+            <label for="description"> Write a description of the game </label>
+            <input type="text" name="description" id="description" formControlName="description" [placeholder]="dataGame.description">
+
+            <label for="multiplayer"> Is the game a multiplayer game? </label>
+            <select name="multiplayer" id="multiplayer" formControlName="multiplayer">
+                <option value="true"> Yes </option>
+                <option value="false"> No </option>
+            </select>
+
+            <label for="price"> Write the price of the game </label>
+            <input type="number" name="price" id="price" formControlName="price" [placeholder]="dataGame.price">
+
+            <label for="stock"> Write the actual stock of the game </label>
+            <input type="number" name="stock" id="stock" formControlName="stock" [placeholder]="dataGame.stock">
+
+            <label for="pegi"> Select the pegi </label>
+            <select name="pegi" id="pegi" formControlName="pegi">
+                <option *ngFor="let pegis of arrayPegi" [value]="pegis.name"> {{ pegis.name }} </option>
+            </select>
+
+            <label for="platform"> Select the platform </label>
+            <select name="platform" id="platform" formControlName="platform">
+                <option *ngFor="let platforms of arrayPlatform" [value]="platforms.name"> {{ platforms.name }} </option>
+            </select>
+            
+            <label for="genre"> Select the genre </label>
+            <select name="genre" id="genre" formControlName="genre">
+                <option *ngFor="let genres of arrayGenre" [value]="genres.name"> {{ genres.name }} </option>
+            </select>
+
+            <label for="releasingDate"> Write the date </label>
+            <input type="text" name="releasingDate" id="releasingDate" formControlName="releasingDate" [placeholder]="dataGame.releasingDate">
+    
+            <button type="submit" [disabled]="form.invalid"> Update </button>
+        </form>
+
+        <button (click)="formEdit()"> Cancel </button>
+    </div>
+</div>

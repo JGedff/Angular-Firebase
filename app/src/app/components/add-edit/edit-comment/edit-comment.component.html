@@ -1,0 +1,13 @@
+<div>
+    <button *ngIf="!edit" (click)="formEdit()"> Edit comment </button>
+    <div *ngIf="edit">
+        <form [formGroup]="form" (ngSubmit)="commentUpdate()">
+            <label for="content"> Write the content </label>
+            <input type="text" name="content" id="content" formControlName="content" [placeholder]="dataComment.content">
+    
+            <button type="submit" [disabled]="form.invalid"> Update </button>
+        </form>
+
+        <button (click)="formEdit()"> Cancel </button>
+    </div>
+</div>

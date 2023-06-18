@@ -1,0 +1,21 @@
+<div>
+    <button *ngIf="!edit" (click)="formEdit()"> Edit post </button>
+    <div *ngIf="edit">
+        <form [formGroup]="form" (ngSubmit)="postUpdate()">
+            <label for="title"> Write a title </label>
+            <input type="text" name="title" id="title" formControlName="title" [placeholder]="dataPost.title">
+    
+            <label for="content"> Write the content </label>
+            <input type="text" name="content" id="content" formControlName="content" [placeholder]="dataPost.content">
+    
+            <label for="category"> Select the category </label>
+            <select name="category" id="category" formControlName="category" required>
+                <option *ngFor="let category of arrayCategories" [value]="category.name"> {{ category.name }} </option>
+            </select>
+    
+            <button type="submit" [disabled]="form.invalid"> Update </button>
+        </form>
+
+        <button (click)="formEdit()"> Cancel </button>
+    </div>
+</div>
