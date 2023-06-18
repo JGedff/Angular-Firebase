@@ -1,17 +1,17 @@
 export class Comment {
-    idComment: String;
-    idPost: String;
-    content: String;
-    likes: Number;
-    visits: Number;
-    userName: String;
+    idComment: string;
+    idPost: string;
+    content: string;
+    likes: number;
+    dislikes: number;
+    userName: string;
 
-    constructor(idComment: String, idPost: String, content: String, likes: Number, visits: Number, userName: String) {
+    constructor(idComment: string, idPost: string, content: string, likes: number, dislikes: number, userName: string) {
         this.idComment = idComment;
         this.idPost = idPost;
         this.content = content;
         this.likes = likes;
-        this.visits = visits;
+        this.dislikes = dislikes;
         this.userName = userName;
     }
 }

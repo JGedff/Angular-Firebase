@@ -1,18 +1,23 @@
-export class Game {
-    barCode: String;
-    title: String;
-    description: String;
-    multiplayer: Boolean;
-    price: Number;
-    stock: Number;
-    pegi: Number;
-    platform: String;
-    genre: String;
-    releasingDate: String;
-    cover: String;
+import { FirebaseService } from "src/services/firebase/firebase.service";
 
-    constructor(barCode: String, title: String, description: String, multiplayer: Boolean, price: Number, stock: Number,
-        pegi: Number, platform: String, genre: String, releasingDate: String, cover: String) {
+export class Game {
+    barCode: string;
+    title: string;
+    description: string;
+    multiplayer: boolean;
+    price: number;
+    stock: number;
+    pegi: string;
+    platform: string;
+    genre: string;
+    releasingDate: string;
+    cover: string;
+    totalRevews: number;
+    averageRevews: number;
+
+    constructor(barCode: string, title: string, description: string, multiplayer: boolean, price: number, stock: number,
+        pegi: string, platform: string, genre: string, releasingDate: string, cover: string, totalRevews: number,
+        averageRevews: number) {
             this.barCode = barCode;
             this.title = title;
             this.description = description;
@@ -23,6 +28,8 @@ export class Game {
             this.platform = platform;
             this.genre = genre;
             this.releasingDate = releasingDate;
-            this.cover = cover
+            this.cover = cover,
+            this.totalRevews = totalRevews;
+            this.averageRevews = averageRevews;
     }
 }

@@ -1,20 +1,20 @@
 export class Post {
-    idPost: String;
-    title: String;
-    content: String;
-    likes: Number;
-    visits: Number;
-    amountComments: Number;
-    userName: String;
-    category: String;
+    idPost: string;
+    title: string;
+    content: string;
+    likes: number;
+    dislikes: number;
+    amountComments: number;
+    userName: string;
+    category: string;
 
-    constructor(idPost: String, title: String, content: String, likes: Number, visits: Number, amountComments: Number,
-        userName: String, category: String) {
+    constructor(idPost: string, title: string, content: string, likes: number, dislikes: number, amountComments: number,
+        userName: string, category: string) {
             this.idPost = idPost;
             this.title = title;
             this.content = content;
             this.likes = likes;
-            this.visits = visits;
+            this.dislikes = dislikes;
             this.amountComments = amountComments;
             this.userName = userName;
             this.category = category;

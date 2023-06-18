@@ -1,22 +1,26 @@
 export class User {
-    code: String;
-    userName: String;
-    amountPosts: Number;
-    amountComments: Number;
-    amountRevews: Number;
-    amountLikes: Number;
-    userVip: Boolean;
-    profileImage: String;
+    userId: string;
+    email: string;
+    userName: string;
+    password: string;
+    totalLikes: number;
+    totalDislikes: number;
+    totalPosts: number;
+    totalComments: number;
+    totalRevews: number;
+    admin: boolean | 1039;
 
-    constructor(code: String, userName: String, amountPosts: Number, amountComments: Number, amountRevews: Number,
-        amountLikes: Number, userVip: Boolean, profileImage: String) {
-            this.code = code;
+    constructor(userId: string ,email: string, userName: string, password: string, totalLikes: number, totalDislikes: number, totalPosts: number,
+        totalComments: number, totalRevews: number, admin: boolean | 1039) {
+            this.userId = userId;
+            this.email = email;
             this.userName = userName;
-            this.amountPosts = amountPosts;
-            this.amountComments = amountComments;
-            this.amountRevews = amountRevews;
-            this.amountLikes = amountLikes;
-            this.userVip = userVip;
-            this.profileImage = profileImage;
+            this.password = password;
+            this.totalLikes = totalLikes;
+            this.totalDislikes = totalDislikes;
+            this.totalPosts = totalPosts;
+            this.totalComments = totalComments;
+            this.totalRevews = totalRevews;
+            this.admin = admin;
     }
 }

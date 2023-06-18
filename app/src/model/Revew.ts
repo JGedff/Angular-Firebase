@@ -1,11 +1,13 @@
 export class Revew {
-    userName: String;
-    gameCode: String;
-    gameTitle: String;
-    stars: Number;
-    content: String;
+    id: string;
+    userName: string;
+    gameCode: string;
+    gameTitle: string;
+    stars: number;
+    content: string;
 
-    constructor(userName: String, gameCode: String, gameTitle: String, stars: Number, content: String) {
+    constructor(id: string, userName: string, gameCode: string, gameTitle: string, stars: number, content: string) {
+        this.id = id;
         this.userName = userName;
         this.gameCode = gameCode;
         this.gameTitle = gameTitle;

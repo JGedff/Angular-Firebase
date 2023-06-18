@@ -1,15 +1,15 @@
 export class Order {
-    code: String;
-    date: String;
-    userName: String;
-    destination: String;
-    gameCode: String;
-    gameTitle: String;
-    amount: Number;
-    descount: Number;
+    code: string;
+    date: string;
+    userName: string;
+    destination: string;
+    gameCode: string;
+    gameTitle: string;
+    amount: number;
+    descount: number;
 
-    constructor(code: String, date: String, userName: String, destination: String, gameCode: String, gameTitle: String,
-        amount: Number, descount: Number) {
+    constructor(code: string, date: string, userName: string, destination: string, gameCode: string, gameTitle: string,
+        amount: number, descount: number) {
             this.code = code;
             this.date = date;
             this.userName = userName;
