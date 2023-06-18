@@ -1,4 +1,4 @@
-<app-header (pageSelected)="changePage($event)" ></app-header>
+<app-header [user]="user" (pageSelected)="changePage($event)"></app-header>
 <div class="m-2rem" [ngSwitch]="page">
     <div *ngSwitchCase="1">
         <h2> About us </h2>
@@ -6,17 +6,31 @@
     </div>
     <div *ngSwitchCase="2">
         <h2> Games </h2>
-        <app-games [gameData]="game" *ngFor="let game of arrayGames"></app-games>
+        <div *ngIf="user">
+            <app-add-game *ngIf="user.admin != false" (load)="loadNewGame($event)" [gen]="arrayGenres" [plat]="arrayPlatforms" [peg]="arrayPegis"></app-add-game>
+        </div>
+
+        <app-games [user]="user" [gameData]="game" (load)="loadGames($event)" *ngFor="let game of arrayGames"></app-games>
+
+        <app-calculator [array]="arrayGames"></app-calculator>
     </div>
     <div *ngSwitchCase="3">
         <h2> Posts </h2>
-        <app-add-post (load)="loadNewPost($event)"></app-add-post>
+        <app-add-post *ngIf="user" (load)="loadNewPost($event)" [user]="user"></app-add-post>
         
-        <app-post [postData]="post" *ngFor="let post of arrayPosts"></app-post>
+        <app-post [user]="user" (load)="loadPosts($event)" [postData]="post" *ngFor="let post of arrayPosts"></app-post>
     </div>
     <div *ngSwitchCase="4">
         <h2> Contact us </h2>
         <app-contact></app-contact>
     </div>
+    <div *ngSwitchCase="5">
+        <app-login *ngIf="!user" (user)="changeUser($event)"></app-login>
+        <app-user-info *ngIf="user" (data)="changeUser($event)" [user]="user"></app-user-info>
+    </div>
+    <div *ngSwitchCase="6">
+        <app-dashboard></app-dashboard>
+    </div>
 </div>
+
 <app-footer></app-footer>
