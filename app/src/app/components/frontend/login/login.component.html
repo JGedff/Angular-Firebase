@@ -1,0 +1,66 @@
+<div *ngIf="!logedIn">
+    <div *ngIf="!register">
+        <h2> Log in </h2>
+
+        <div *ngIf="enterEmail">
+            <form [formGroup]="form" (ngSubmit)="logIn()">
+                <label for="email"> * Write your email </label>
+                <input type="email" name="email" id="email" formControlName="email" [class.input-k]="this.form.get('email')?.valid" [class.input-w]="this.form.get('email')?.invalid && this.form.get('email')?.touched">
+                <p *ngIf="this.form.get('email')?.invalid && this.form.get('email')?.touched" class="t-red"> This field must have a string similar to this: example@example.example </p>
+
+                <label for="password"> * Write your password </label>
+                <input type="password" name="password" id="password" formControlName="password" minlength="6" [class.input-k]="this.form.get('password')?.valid" [class.input-w]="this.form.get('password')?.invalid && this.form.get('password')?.touched">
+                <p *ngIf="this.form.get('password')?.invalid && this.form.get('password')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+                <button type="submit" [disabled]="form.invalid"> Log in </button>
+            </form>
+
+            <a class="btn btn-light" (click)="loginEmail()"> Enter with user name and password </a>
+        </div>
+
+        <div *ngIf="!enterEmail">
+            <form [formGroup]="form" (ngSubmit)="logIn()">
+                <label for="userName"> * Write your user name </label>
+                <input type="text" name="userName" id="userName" formControlName="userName" [class.input-k]="this.form.get('userName')?.valid" [class.input-w]="this.form.get('userName')?.invalid && this.form.get('userName')?.touched">
+                <p *ngIf="this.form.get('userName')?.invalid && this.form.get('userName')?.touched" class="t-red"> This field is required </p>
+
+                <label for="password"> * Write your password </label>
+                <input type="password" name="password" id="password" formControlName="password" minlength="6" [class.input-k]="this.form.get('password')?.valid" [class.input-w]="this.form.get('password')?.invalid && this.form.get('password')?.touched">
+                <p *ngIf="this.form.get('password')?.invalid && this.form.get('password')?.touched" class="t-red"> The password must have at least 6 characters </p>
+
+                <button type="submit" [disabled]="form.invalid"> Log in </button>
+            </form>
+
+            <a class="btn btn-light" (click)="loginEmail()"> Enter with email and password </a>
+        </div>
+
+        <a (click)="changeRegister()" class="btn btn-light"> I do not have an account </a>
+    </div>
+    <div *ngIf="register">
+        <h2> Register </h2>
+
+        <form [formGroup]="form" (ngSubmit)="saveUser()">
+            <label for="userName"> * Write a user name </label>
+            <input type="text" name="userName" id="userName" formControlName="userName" [class.input-k]="this.form.get('userName')?.valid" [class.input-w]="this.form.get('userName')?.invalid && this.form.get('userName')?.touched">
+            <p *ngIf="this.form.get('userName')?.invalid && this.form.get('userName')?.touched" class="t-red"> This field is required </p>
+    
+            <label for="email"> * Write your email </label>
+            <input type="email" name="email" id="email" formControlName="email" [class.input-k]="this.form.get('email')?.valid" [class.input-w]="this.form.get('email')?.invalid && this.form.get('email')?.touched">
+            <p *ngIf="this.form.get('email')?.invalid && this.form.get('email')?.touched" class="t-red"> This field must have a string similar to this: example@example.example </p>
+
+            <label for="password"> * Write a password </label>
+            <input type="password" name="password" id="password" formControlName="password" minlength="6" [class.input-k]="this.form.get('password')?.valid" [class.input-w]="this.form.get('password')?.invalid && this.form.get('password')?.touched">
+            <p *ngIf="this.form.get('password')?.invalid && this.form.get('password')?.touched" class="t-red"> The password must have at least 6 characters </p>
+    
+            <label for="repeatP"> * Rewrite the password </label>
+            <input type="password" name="repeatP" id="repeatP" formControlName="repeatP" minlength="6">
+            <p *ngIf="passNotMatch" class="t-red"> The passwords aren't the same. Check that you have writed rigth your password </p>
+
+            <button type="submit" [disabled]="form.invalid"> Register </button>
+        </form>
+
+        <a (click)="changeRegister()" class="btn btn-light"> I already have an account </a>
+    </div>
+
+    <p> <strong>Fields with * are required to submit</strong> </p>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="!eliminated">
+    <p><strong> {{ revewData.userName }} </strong></p>
+    <p> {{ revewData.content }} </p>
+    <p><strong> {{ revewData.stars }} </strong></p>
+
+    <div *ngIf="revewData.userName === user.userName || user.admin == 1039">
+        <div *ngIf="user.admin != false">
+            <app-edit-revew [dataRevew]="revewData" (load)="updateRevew($event)"></app-edit-revew>
+        </div>
+
+        <button (click)="clicked = true; deleteRevew()" [disabled]="clicked"> Delete revew </button>
+    </div>
+</div>

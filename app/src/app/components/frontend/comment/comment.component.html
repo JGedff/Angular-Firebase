@@ -1,0 +1,19 @@
+<div *ngIf="!eliminated">
+    <div>
+        <p> {{ commentData.userName }} </p>
+    </div>
+    <div>
+        <p> {{ commentData.content }} </p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button (click)="addLike()" [disabled]="touchedLike"> <p> Likes: {{ commentData.likes }} </p> </button>
+        <button (click)="addDislike()" [disabled]="touchedDislike"> <p> Dislikes: {{ commentData.dislikes }} </p> </button>
+    </div>
+    <div *ngIf="commentData.userName == user.userName || user.admin == 1039">
+        <div *ngIf="user.admin != false">
+            <app-edit-comment [dataComment]="commentData" (load)="update($event)"></app-edit-comment>
+        </div>
+
+        <button (click)="eliminateComment()"> Delete comment </button>
+    </div>
+</div>

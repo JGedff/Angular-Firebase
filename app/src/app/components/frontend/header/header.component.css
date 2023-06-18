@@ -1,0 +1,7 @@
+.header {
+    background-color: rgb(177, 223, 255);
+}
+
+.navbar-nav {
+    flex-direction: row;
+}

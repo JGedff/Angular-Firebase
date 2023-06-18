@@ -1,0 +1,31 @@
+<div *ngIf="!eliminated">
+    <div class="d-flex justify-content-between">
+        <p><strong> {{ postData.userName }} </strong></p>
+        <p> {{ postData.category }} </p>
+    </div>
+    <h4> {{ postData.title }} </h4>
+    <div class="d-flex">
+        {{ postData.content }}
+    </div>
+    <div class="d-flex justify-content-between">
+        <button (click)="addLike()" [disabled]="touchedLike"> <p>Likes: {{ postData.likes }}</p> </button>
+        <button (click)="addDislike()" [disabled]="touchedDislike"> <p>dislikes: {{ postData.dislikes }}</p> </button>
+        <p>Comments: {{ postData.amountComments }}</p>
+    </div>
+    <div *ngIf="postData.userName == user.userName || user.admin == 1039">
+        <div *ngIf="user.admin != false">
+            <app-edit-post [dataPost]="postData" (load)="update($event)"></app-edit-post>
+        </div>
+
+        <button (click)="eliminatePost()"> Delete post </button>
+    </div>
+    <div *ngIf="openPost">
+        <button (click)="commentsShowHide()"> Hide comments </button>
+        <app-add-comment [postId]="id" [user]="user" (load)="loadNewComment($event)"></app-add-comment>
+
+        <app-comment [commentData]="comment" [user]="user" (load)="loadComments($event)" *ngFor="let comment of arrayComments"></app-comment>
+    </div>
+    <div *ngIf="!openPost">
+        <button (click)="commentsShowHide()"> Show comments </button>
+    </div>
+</div>

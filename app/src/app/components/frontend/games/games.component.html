@@ -1,0 +1,23 @@
+<div *ngIf="!eliminated">
+    <h4> {{ gameData.title }} </h4>
+
+    <div>
+        <p> {{ gameData.description }} </p>
+    </div>
+
+    <div *ngIf="user">
+        <div *ngIf="user.admin != false">
+            <app-edit-game [dataGame]="gameData" (load)="updateGame($event)"></app-edit-game>
+
+            <button (click)="eliminateGame()"> Delete game </button>
+        </div>
+        
+        <button (click)="revewsShowHide()"> See revews </button>
+    </div>
+
+    <div *ngIf="seeRevews == true">
+        <app-add-revew *ngIf="user != null" [user]="user" [game]="gameData" (load)="loadNewRevew($event)"></app-add-revew>
+
+        <app-revews [revewData]="revew" [user]="user" *ngFor="let revew of arrayRevews" (load)="loadRevew($event)"></app-revews>
+    </div>
+</div>
